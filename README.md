@@ -80,3 +80,56 @@ Se i valori seguono l'ordine di inserimento, non serve specificare gli indici ne
 Il carattere di escape per le stringhe è `\`, esempio: `prova = 'Ciao sono Luca e sono \'figo\''`.
 
 ## Boolean 🐓
+I valori booleani vanno sempre messi con la maiuscola `x=True` o `y=False`.
+
+Con la funzione `bool()` si può verificare lo stato di una variabile, un array vuoto, una stringa vuota o una lista vuota ritornerà sempre `False`.
+
+## Operazioni Aritmetiche :dog:
+
+Non sto a scriverli tutti che senso ha! se servono sono [qui](http://www.helldragon.eu/marcello/galli_python/05-Operatori.html)
+
+## If Statement :cat:
+gli If si fanno cosi, è ssenziale indentare, altrimenti non funziona nulla.
+```py
+if condizione: 
+    #codice
+else: 
+    #codice
+```
+Ci sono poi diversi comparatori `==`, `!=`, `>=`, `<=`, `<`, `>`.  
+
+L' elseif si scrive `elif`.  
+
+Gli operatori logigi sono `and`, `or` e `not()`.  
+
+Esiste una versione shorthand di if che è `if x > 10 : #singolo statement`.
+
+## Ciclo while 🩰
+Velocissimo esempio di un while che cicla per vero
+```py
+x = ['milano','roma','napoli']
+i=0
+while i<3:
+    print(x[i])
+    i+=1
+```
+`break` permette di uscire prima del verificarsi della condizione, `continue` salta un indice del ciclo ed `else` da un istruzione da fare alla fine del ciclo stesso.
+
+## Ciclo For 🈺
+```py
+lista_citta = ['milano','roma','napoli']
+
+for citta in lista_citta:
+    print(citta)
+
+stringa = 'anguria'
+for lettera in stringa:
+    print(lettera)
+
+for x in range(6):
+    print(x)
+```
+anche qui posso usare `break`, il `continue` e `else`.
+
+## Collezioni di dati 🗼
+
