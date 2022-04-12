@@ -143,6 +143,8 @@ Con `indicizzato` si intende che possiamo accedere agli elementi tramite un indi
 `modificabile` significa che si può modificare che è poi il contrario di `immutabile`.
 `permette duplicati` significa che possono esserci più elementi con lo stesso valore.
 
+## Liste 🦍
+
 La lista è la cosa più simile all'array per il momento come flessibilità, e si scrivono per esempio
 ```py
 x = ['milano','roma','napoli']
@@ -176,5 +178,63 @@ for citta in x:
 ```
 Oppure posso usare `y.extend(x)`. 
 
-## Tuple 
+## Tuple 🦝
+Le tuple si creano con le parentesi tonde quidi cosi `x = ('roma','milano','napoli')` anche qui possiamo fare valori mischiati, stringhe, numeri, boolean etc etc...
 
+Le tuple di un solo valore sono stringhe infatti `x = ('roma')` sarà una stringa a meno che non si scriva `x = ('roma',)`. Come per gli altri tipi di dato si stampano con i costruttori, quindi o col metodo `z = tuple(x) print(z)` oppure con i costruttori, quindi `x= tuple(('roma','milano','napoli')) print(x)`.
+
+Si accedono con indici e range come per le liste.
+Per verificare se un elemento esiste basta fare un semplice:
+```py
+if 'venezia' in x:
+    print('presente')
+else
+    print('assente')
+```
+non è possibile modificare gli elementi delle tuple infatti se faccio:
+```py
+x = tuple(('roma','milano','napoli'))
+x[0]='venezia'
+```
+mi darà errore e non funzionerà, per aggiungere o modificare una tupla esiste un workaround:
+```py
+x=('roma','milano','napoli')
+y=list(x)
+y[0]='venezia'
+x=tuple(y)
+```
+in caso si voglia rimuovere un elemento si fa `y.remove('milano')`.
+Esiste la possibilità di scompattare una tupla in diverse variabili:
+```py
+citta=('roma','milano','napoli')
+(x,y,z) = citta
+```
+caso in qui ci siano più valori che variabili ad esempio `citta = ('roma','milano','napoli','venezia')` è possibile usare una lista all'interno delle variabili disponibili, dichiarandola con un * cosi `(x,y,*z)= citta` a questo punto la z sarà una lista contenente due valori.
+
+Per cicla basta fare `for elemeno in citta: print(elemento)`.
+E' possibile unire due tuple con il `+`.
+Ci sono diversi metodi utili un paio tra tutti sono `count('milano')` per contare quante volte è presente un elemento nella tupla e `index('milano')` per vedere che indice ha un dato elemento.
+
+## Set 🦓
+I set si creano con le graffe quindi `x={'roma','milano','napoli'}` anche i set possono avere valori misti.
+Esiste il costruttore che sarà `y = set(('roma','milano','napoli'))`.
+
+I set non sono indicizzati quindi `x[0]` non funziona, è possibile però prendere i dati con il classico `for citta in x: print(citta)` solo che tutte le volte citta avrà un valore random di quelli disponibili.
+
+Nei set non è possibile modificare, ma posso aggiungere e rimuovere con `x.add('venezia')` oppure `x.remove('milano')` o `x.discard('milano')`.
+La differenza tra remove e discard è che remove restituisce un errore se non trova l'elemento da cancellare, mentre discard no.
+
+Un altro modo per aggiungere è:
+```py
+x={'roma','milano','napoli'}
+y={'venezia','firenze'}
+x.update(y)
+```
+
+`x.clear()` cancella il contenuto del set, mentre `del x` cancella completamente il set.
+Esiste la possibilità di unire due liste in una terza, con il comando `z = x.union(y)`.
+Il comando `x.intersection_update(y)` restituisce solo gli elementi duplicati tra x e y.
+Se voglio assegnare l'intersezione uso `z=x.intersection(y)`.
+Se uso `x.symmetric_difference_update(y)` ottengo un array senza i duplicati contenuti in y e se voglio fare un assegnazione faccio `z=x.symmetric_difference(y)`.
+
+## Dict
