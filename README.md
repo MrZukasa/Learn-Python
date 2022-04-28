@@ -238,3 +238,34 @@ Se voglio assegnare l'intersezione uso `z=x.intersection(y)`.
 Se uso `x.symmetric_difference_update(y)` ottengo un array senza i duplicati contenuti in y e se voglio fare un assegnazione faccio `z=x.symmetric_difference(y)`.
 
 ## Dict
+I dictionary sono collezioni di dati ordinate e modificabili ma che non permettono duplicati, sono un po l'equivalente degli oggetti in JavaScript.
+Sono formati alla maniera chiave/valore e si creano facendo:
+```py
+persona = {
+    "nome":"Luca",
+    "cognome":"Rossi",
+    "eta":35
+}
+```
+il fatto che non ammette dublicati è relativo alla sua natura chiavev valore, infatti se provassi ad mettere una nuova chiave e la chiamassi sempre "eta", andrei a sostituire quella precedente.
+
+Per accedere ai dict basta fare: `persona["cognome"]` oppure posso prendere con la get, quindi `persona.get("nome")` o con le chiavi quindi `persona.keys()` cosi ne ottengo una lista che sarà `dict_keys(['nome','cognome','eta'])` se invece facessi `persona.values()` otterrei i valori `dict_values(['Luca','Rossi','35'])` se facessi `persona.items()` otterrei una lista di tuple che rappresenta un oggetto chiave valore `dict_items([('nome','Luca'), ('cognome','Rossi'), ('eta',35)])` in questo caso sono 3 tuple racchiuse in una lista.
+
+Posso controllare se una chiave esiste all'interno del Dict facendo `print("stringa" in persona)` ed otterrò un boolean.
+
+Per modificare gli elementi si usano:
+```py
+persona["nome"] = "marco"
+```
+oppure
+```py
+persona.update({"nome":"Anna"})
+```
+stesso discorso per aggiungere degli elementi, per rimuovere invece si usano `persona.pop("nome")` oppure `persona.popitem()` per rimuovere l'ultimo item, oppure ancora `persona.clear()` che pulisce completamente il dict e per ultimo `del persona["nome"]` che serve per eliminare la chiave in questione.
+Volendo si può anche eliminare l'intero dict facendo `del persona`.
+
+Per ciclare gli elementi uso:
+```py
+for x in persona:
+    print(x)
+```
