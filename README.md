@@ -269,3 +269,115 @@ Per ciclare gli elementi uso:
 for x in persona:
     print(x)
 ```
+se voglio mandare a schermo le chiavi, se invece voglio stampare i valori farò:
+```py
+for x in persona:
+    print(persona[x])
+```
+oppure ce possibilità di far riferimento direttamente ad i valori usando `persona.values()` nel for, oppure `persona.keys()` per le chiavi appunto.
+Posso scorrerlo generando una tupla facendo:
+```py
+for x,y in persona.items():
+    print(x,y)
+```
+cosi avrò la risposta direttamente in chiave valore.
+Posso copiare un dict usando `x = persona.copy()` se facessi `x = persona` ne farei soltanto una reference, quindi quando cambio il valore di una cambio anche il valore dell'altra.
+Un altro modo per copiare è `x = dict(persona)`
+I dict possono essera annidati uno dentro l'altro ad esempio:
+```py
+persona = {
+    "nome":"Luca",
+    "cognome":"Rossi",
+    "eta":35,
+    "indirizzo":{
+        "citta": "Trieste",
+        "cap": "00000",
+        "civico": 33
+    }
+}
+```
+Per stampare i dict annidati si fa `print(persona["indirizzo"]["civico"])`.
+
+## Funzioni
+Le funzioni si definisco con:
+```py
+def nome_funzione(parametro):
+    print("Hello world"+ parametro)
+```
+per richiamarle si fa `nome_funzione(argomento)`. 
+
+Esistono dei parametri standard che sono:
+- Arbitrary Arguments
+  si usa quando non si sa quanti argomenti ci sono e si scrive:
+
+  ```py
+  def nome_funzione(*opzioni):
+      print(opzioni[0])
+      print(opzioni[1])
+  ```
+  e poi richiamo la funzione ad esempio con `nome_funzione("argomento",false)`e lui anche se non ho definito il numero di parametri, funzionerà ugualmente.
+
+- Keyword Arguments
+  si usa quando voglio passare un argomento chiave valore (keyword) quindi ad esempio:
+
+  ```py
+  def nome_funzione(opzioni,boolean):
+      print(opzioni)
+      print(boolean)
+  ```
+  dove chiamerò la funzione `nome_funzione(opzioni="carlo", boolean=True)`.
+
+Si possono usare i parametri di default nella maniera classica, cioè assegnando il parametro da un valore, ad esempio `def nome_funzione(opzioni = "default")`.
+
+```py
+def somma(n1,n2):
+    somma = n1 + n2
+    return somma
+
+x = somma(2,2)
+print(x)
+```
+come in altri linguaggi, se non ho un return non ottendo un valore di ritornod alla funzione.
+
+## Classi ed Oggetti
+Le classi si dichiarano:
+```py
+class Persona:
+    nome = "Luca"
+    cognome = "Rossi"
+```
+e possono essere istanziate con `persona1 = Persona()`, i metodi sono sempre nel solito modo, quindi `persona1.nome` e avanti cosi. 
+Per far si che le istanze siano diversificate si usa il costruttore in dichiarazione della classe stessa, cosi:
+```py
+class Persona:
+    def __init__(self, nome, cognome):
+        self. nome = nome
+        self.cognome = cognome
+```
+Il costruttore è una funzione che viene chiamata automaticamente, ed usa self per identificare se stessa come istanza, assegnando a se i parametri inseriti come argomento.
+Per istanziare gli oggetti si fa `persona1 = Persona("Luca","Rossi")` e `persona1 = Persona("Marco","Verdi")`.
+Per aggiungere i metodi alla classe si fa:
+```py
+class Persona:
+    def __init__(self, nome, cognome):
+        self. nome = nome
+        self.cognome = cognome
+    def saluta(self):
+        print("Ciao! sono "+ self.nome)
+```
+Chiaramente il metodo è utilizzabile su tutte le istanze della classe e si richiama con `persona1.saluta()`.
+Il parametro self identifica l'istanza.
+
+## Ereditarietà
+Creare una classe figlia che eredita tutta la struttura della classe madre, ad esempio la classe figlia di `Persona` sarà:
+```py
+class Insegnante(Persona):
+    pass
+```
+quindi attualmente potrò definire `insegnate1 = Insegnante("Anna","Neri")` che erediterà tutto da `Persona`, quindi posso fare `insegnante1.saluta()`.
+
+Per estendere la classe faccio:
+```py
+class Insegnante(Persona):
+    def __init__(self, nome, cognome)
+```
