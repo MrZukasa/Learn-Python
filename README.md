@@ -404,3 +404,9 @@ Si possono dichiarare variabili globali e non, per esempio all'interno di funzio
 Se all'interno di una funzione, voglio usare una variabile globale senza averne solo un istanza per quella specifica funzione, dovrò utilizzare la parola `global` davanti. Cosi facendo quando cambierà il valore di quella variabile nella funzione, avrò cambiato anche la funzione globale, diversamente senza l'uso del `global` cambierà il contenuto della variabile solo per quella funzione.
 
 ## Moduli
+Un modulo è un po come se fosse una libreria e si creano come file `nomemodulo.py` normalissimi, ad esempio:
+```py
+def saluta(nome):
+    print("Ciao "+ nome 
+```
+per includerlo dentro un programma dovrò fare `import nomemodulo` e poi per richiamarne le funzioni/metodi farò `nomemodulo.saluta(nome)`
