@@ -379,5 +379,28 @@ quindi attualmente potrò definire `insegnate1 = Insegnante("Anna","Neri")` che 
 Per estendere la classe faccio:
 ```py
 class Insegnante(Persona):
-    def __init__(self, nome, cognome)
+    def __init__(self, nome, cognome, materia):
+        super().__init__(nome, cognome)
+        self.materia = materia
 ```
+super() serve per definire i campi ereditati da persona.
+
+Posso assegnare i valori alla classe facendo `insegnante1 = Insegnante("Anna","Neri","Matematica")`.
+Esiste la possibilità di sovrascrivere i metodi e la roba ereditatà dalla classe madre, per esempio se dichiaro nuovamente il metodo saluta con delle differenze e lo richiamo dopo la dichiarazione, avrò a tutti gli effetti un nuovo metodo saluta che sovrascrive il precedente.
+```py
+def saluta(self):
+    print("buongiorno sono "+ self.nome + " " + self.cognome)
+```
+questo metodo è della classe ed è stato sovrascritto, quindi ad uso di Insegnante. Se creo un nuovo metodo dentro Insegnante sarà esclusivo di Insegnante e non di Persona.
+esempio:
+```py
+def dai_voto(self):
+    print("bravo 8")
+```
+questo sarà solo di Insegnante.
+
+## Scope delle variabili
+Si possono dichiarare variabili globali e non, per esempio all'interno di funzioni.
+Se all'interno di una funzione, voglio usare una variabile globale senza averne solo un istanza per quella specifica funzione, dovrò utilizzare la parola `global` davanti. Cosi facendo quando cambierà il valore di quella variabile nella funzione, avrò cambiato anche la funzione globale, diversamente senza l'uso del `global` cambierà il contenuto della variabile solo per quella funzione.
+
+## Moduli
